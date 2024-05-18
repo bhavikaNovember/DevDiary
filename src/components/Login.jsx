@@ -5,6 +5,7 @@ import {Button, Input, Logo} from "./index"
 import {useDispatch} from "react-redux"
 import authService from "../appwrite/auth"
 import {useForm} from "react-hook-form"
+import pic1 from '../images/pic1.jpg'
 
 function Login() {
     const navigate = useNavigate()
@@ -28,16 +29,18 @@ function Login() {
 
   return (
     <div
-    className='flex items-center justify-center w-full'
+    className='flex items-center justify-center w-full h-screen'
+    style={{ backgroundImage: `url(${pic1})`, backgroundSize: 'cover' }}
     >
-        <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
+
+        <div className={`mx-auto w-full max-w-lg bg-white bg-opacity-70 rounded-xl p-10 border border-black/10`}>
         <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[100px]">
-                        <Logo width="100%" />
+                     
                     </span>
         </div>
         <h2 className="text-center text-2xl font-bold leading-tight">Sign in to your account</h2>
-        <p className="mt-2 text-center text-base text-black/60">
+        <p className="mt-2 text-center text-base text-black">
                     Don&apos;t have any account?&nbsp;
                     <Link
                         to="/signup"
@@ -48,7 +51,7 @@ function Login() {
         </p>
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
         <form onSubmit={handleSubmit(login)} className='mt-8'>
-            <div className='space-y-5'>
+            <div className='space-y-5 font-medium'>
                 <Input
                 label="Email: "
                 placeholder="Enter your email"

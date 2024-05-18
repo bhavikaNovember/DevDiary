@@ -23,16 +23,21 @@ function App() {
   }, [])
 
   return !loading ? (
-    <div className='min-h-screen flex flex-wrap content-between bg-sky-200'>
-      <div className='w-full block'>
+    <>
+      {/* className="w-full h-full flex flex-col min-h-screen border-8 border-purple-900 bg-fuchsia-300" */}
+      {/* min-h-screen flex flex-wrap content-between */}
+      {/* <div > */}
+      {/* className='w-full block' */}
         <Header/>
-        <main>
+        <main className="flex-grow">
         <Outlet /> 
         </main>
-        <Footer />
-      </div>
-    </div>
+        <Footer/>
+      {/* </div> */}
+    </>
   ) : null
+  
+  
 }
 
 export default App
