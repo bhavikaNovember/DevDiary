@@ -28,28 +28,92 @@ function Home() {
         });
     }, []);
 
+    // image carousel
+
+    const [pics, setPics] = useState([]);
+    const [index, setIndex] = useState(0);
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+      //intialize local storage
+      const intializelocalstorage = () => {
+        const imageURLS = [
+          'pics/i1.jpg',
+          'pics/i2.jpg',
+          'pics/i3.jpg',
+          'pics/i4.jpg',
+          'pics/i5.jpg',
+        
+          
+        ];
+  
+        if (!localStorage.getItem('imageURLS')) {
+          localStorage.setItem('imageURLS', JSON.stringify(imageURLS));
+        }
+      };
+  
+      intializelocalstorage();
+  
+      const storeImages = localStorage.getItem('imageURLS');
+      if (storeImages) {
+        setPics(JSON.parse(storeImages));
+      }
+      setLoading(false);
+    }, []);
+  
+    useEffect(() => {
+      const tid = setTimeout(() => {
+        const lastidx = pics.length - 1;
+        setIndex(preidx => (preidx == lastidx ? 0 : preidx + 1));
+      }, 2000);
+  
+      return () => {
+        clearTimeout(tid);
+      };
+    }, [index, pics]);
+
+
+
+ // image carousel
+
+
+
+
     if (posts.length === 0) {
         return (
             <div className="w-full overflow-hidden relative">
-                {/* Text above the background image */}
+                
+
+                {/* Background image 1 image carousel*/}
+                <Container>
+                 {/* <div className='object-cover'><img src={pic1} alt="Background"  className='h-2/5'/>
+                 
+                 </div> */}
+                  
+                
+
+                <div className="flex items-center justify-center h-screen relative">
+        {/* check here */}
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <img
+            src={pics[index]}
+            alt="not-found"
+            className="w-full h-full object-cover"
+          />
+        )}
+      </div>
+                 
+
+
+                 </Container>{/* Background image 1 image carousel*/}
+                 {/* Text above the background image */}
                 <Container>
                     <div className="absolute top-96 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center  bg-white bg-opacity-70 w-2/4 p-8">
                         <h1 className="text-4xl font-bold text-beige-dark mb-4">Journey to Wellness and Joy</h1>
                         <p className="text-lg text-beige-dark">Welcome to our Lifestyle Blog, where we share inspiration for a balanced and fulfilling life. Discover tips on wellness, travel, delicious recipes, and daily motivation. Join our community and explore new ways to enhance your everyday experiences and create a life you love.</p>
                     </div>
                 </Container>
-
-                {/* Background image 1 */}
-                <Container>
-                 <div className='object-cover'><img src={pic1} alt="Background"  className='h-2/5'/>
-                 
-                 </div>
-                  
-                
-                  </Container>
-
-
-
                 {/* Background image 2 */}
                 <div> 
               
@@ -157,7 +221,7 @@ Like the characters in my favorite novels, my skin has its own story to tell. So
 {/* 2 3slayout */}
     <Container>
                     
-                    <div className='flex  justify-center items-center p-12 mt-8'>
+                    <div className='flex  justify-center items-center p-12 mt-8 '>
     
                         {/* image */}
                         

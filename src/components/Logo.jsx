@@ -1,94 +1,28 @@
-// import React, { useState } from 'react';
-// import { FaChevronDown } from 'react-icons/fa';
-
-// function Logo() {
-//   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
-//   const [showFAQsDropdown, setShowFAQsDropdown] = useState(false);
-
-//   const handleAboutDropdownToggle = () => {
-//     setShowAboutDropdown(!showAboutDropdown);
-//   };
-
-//   const handleFAQsDropdownToggle = () => {
-//     setShowFAQsDropdown(!showFAQsDropdown);
-//   };
-
-//   return (
-//     <div className="relative">
-//       <button onClick={handleAboutDropdownToggle} className=" text-orange-900 inline-block px-6 py-2 duration-200 hover:bg-white rounded-full">
-//         Categories
-        
-//       </button>
-//       {showAboutDropdown && (
-//         <div className="absolute z-10 bg-white p-4 mt-2 rounded-lg shadow-lg">
-//           <p>About content here</p>
-//         </div>
-//       )}
-
-
-//       <button onClick={handleFAQsDropdownToggle} className=" text-orange-900 inline-block px-6 py-2 duration-200 hover:bg-white rounded-full">
-//         Archives
-       
-//       </button>
-//       {showFAQsDropdown && (
-//         <div className="absolute z-10 bg-white p-4 mt-2 rounded-lg shadow-lg">
-//           <p>FAQs content here</p>
-//         </div>
-//       )}
-
-// <button onClick={handleFAQsDropdownToggle} className=" text-orange-900 inline-block px-6 py-2 duration-200 hover:bg-white rounded-full">
-//         Contact
-//       </button>
-//       {showFAQsDropdown && (
-//         <div className="absolute z-10 bg-white p-4 mt-2 rounded-lg shadow-lg">
-//           <p>FAQs content here</p>
-//         </div>
-//       )}
-
-//     </div>
-//   );
-// }
-
-// export default Logo;
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Logo() {
-  const [showAboutDropdown, setShowAboutDropdown] = useState(false);
-  const [showFAQsDropdown, setShowFAQsDropdown] = useState(false);
-
-  const handleAboutDropdownToggle = () => {
-    setShowAboutDropdown(!showAboutDropdown);
-  };
-
-  const handleFAQsDropdownToggle = () => {
-    setShowFAQsDropdown(!showFAQsDropdown);
-  };
-
   return (
     <div className="relative">
-      <button onClick={handleAboutDropdownToggle} className=" text-orange-900 inline-block px-6 py-2 duration-200 hover:bg-white rounded-full">
+      <Link to="/" className="text-orange-900 inline-block px-6 py-2 duration-200 hover:bg-white rounded-full">
         Home
-      </button>
-      
+      </Link>
 
-      <button onClick={handleAboutDropdownToggle} className=" text-orange-900 inline-block px-6 py-2 duration-200 hover:bg-white rounded-full">
+      <Link to="/about" className="text-orange-900 inline-block px-6 py-2 duration-200 hover:bg-white rounded-full">
         About
-      </button>
-      
-
-      <button onClick={handleFAQsDropdownToggle} className=" text-orange-900 inline-block px-6 py-2 duration-200 hover:bg-white rounded-full">
+      </Link>
+       
+      <Link to="/categories" className="text-orange-900 inline-block px-6 py-2 duration-200 hover:bg-white rounded-full">
         Categories
-      </button>
+      </Link>
       
-      <button onClick={handleFAQsDropdownToggle} className=" text-orange-900 inline-block px-6 py-2 duration-200 hover:bg-white rounded-full">
-        Archives
-      </button>
-    
+      <Link to="/" className="bg-orange-900 inline-block px-6 py-2 duration-200 ml-52 mr-52  text-orange-100 rounded-full ">
+        DevDiary
+      </Link>
 
-      <button onClick={handleFAQsDropdownToggle} className=" text-orange-900 inline-block px-6 py-2 duration-200 hover:bg-white rounded-full">
-        Contact
-      </button>
-      
+      <Link to="/faqs" className="text-orange-900 inline-block px-6 py-2 duration-200 hover:bg-white rounded-full">
+        FAQs
+      </Link>
     </div>
   );
 }
