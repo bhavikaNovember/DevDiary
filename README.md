@@ -17,6 +17,9 @@ This repository contains the source code for a blog project implemented using Re
 
 # Routes
 - /home: Landing page displaying the blog's home content.
+- /about: Some insight about the blog's content.
+- /categories: Landing page displaying the blog's categories content.
+- /faqs: Landing page displaying the blog's frequently asked questions content.
 - /login: Login page for user authentication.
 - /create-account: Page for creating a new user account.
 - /blogs: View all blog posts (protected route, requires authentication).
