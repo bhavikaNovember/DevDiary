@@ -1,4 +1,9 @@
 # DevDiary Project README
+
+## Website
+
+You can access the DevDiary web application [here](https://dev-diary-tau.vercel.app/).
+
 # Overview
 This repository contains the source code for a blog project implemented using React. The project includes features like user authentication, post creation, editing, and viewing. It utilizes React Router for navigation and Redux for state management.
 
